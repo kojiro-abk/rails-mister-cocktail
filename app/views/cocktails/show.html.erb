@@ -1,10 +1,11 @@
 <div class="container m-5">
-  <h1>Details of cocktails</h1>
+  <h2>Details of cocktails</h2>
 
-  <%= @cocktail.name %>
-    <% if @cocktail.photo.attached? %>
-      <%= cl_image_tag(@cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
-    <% end %>
+  <h3><%= @cocktail.name %></h3>
+  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag(@cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
+  <% end %>
+  <p></p>
   <% @cocktail.doses.each do |dose| %>
     <p>
       <%= dose.ingredient.name %>
@@ -13,8 +14,8 @@
       <hr>
     </p>
   <% end %>
-  <%= link_to "Remove", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
-  <%= link_to 'Edit', edit_cocktail_path(@cocktail) %>
   <%= link_to 'Create a dose', new_cocktail_dose_path(@cocktail) %>
+  <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail) %>
+  <%= link_to "Remove cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
   <%= link_to "Back to list", root_path %>
 </div>
