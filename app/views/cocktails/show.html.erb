@@ -2,6 +2,9 @@
   <h1>Details of cocktails</h1>
 
   <%= @cocktail.name %>
+    <% if @cocktail.photo.attached? %>
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% @cocktail.doses.each do |dose| %>
     <p>
       <%= dose.ingredient.name %>
@@ -11,6 +14,7 @@
     </p>
   <% end %>
   <%= link_to "Remove", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Edit', edit_cocktail_path(@cocktail) %>
   <%= link_to 'Create a dose', new_cocktail_dose_path(@cocktail) %>
   <%= link_to "Back to list", root_path %>
 </div>

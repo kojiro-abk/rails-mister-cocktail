@@ -28,7 +28,9 @@
           <%# </div> %>
           <%#= link_to "More about", cocktail_path(cocktail), class: 'card-link' %>
         <div class="card" style="width: 18rem;">
-          <img src="https://source.unsplash.com/500x400/?cocktail" class="card-img-top" alt="cocktail">
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_tag cocktail.photo.key, height: 200, width: 200, crop: :fill %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= cocktail.name %></h5>
             <a href="<%= cocktail_path(cocktail) %>" class="btn btn-primary">Details</a>
