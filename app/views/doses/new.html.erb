@@ -1,7 +1,9 @@
-<div class="container">
+<div class="container m-5">
   <%= simple_form_for [ @cocktail, @dose ] do |f| %>
     <%= f.input :description %>
     <%= f.association :ingredient %>
     <%= f.submit "Incluir dose", class: "btn btn-primary" %>
   <% end %>
+    <%= link_to "Cancel", cocktail_path(@cocktail) %>
+    <%= link_to "Back to list", root_path %>
 </div>
