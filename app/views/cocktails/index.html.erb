@@ -28,10 +28,12 @@
           <%# </div> %>
           <%#= link_to "More about", cocktail_path(cocktail), class: 'card-link' %>
         <div class="card" style="width: 18rem;">
-          <% if cocktail.photo.attached? %>
-            <%= cl_image_tag(cocktail.photo.key, height: 200, width: 200, crop: :fill) %>
-          <% end %>
-          <div class="card-body">
+          <div class="m-2">
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag(cocktail.photo.key, height: 270, width: 270, crop: :fill) %>
+            <% end %>
+          </div>
+          <div class="card-body text-center">
             <h5 class="card-title"><%= cocktail.name %></h5>
             <a href="<%= cocktail_path(cocktail) %>" class="btn btn-primary">Details</a>
           </div>
