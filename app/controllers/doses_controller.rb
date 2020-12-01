@@ -8,6 +8,7 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
+    @dose.ingredient_id = params[:dose][:ingredient_id]
     if @dose.save
       redirect_to cocktail_path(@cocktail), notice: 'Dose was successfully created!'
     else
@@ -28,6 +29,6 @@ class DosesController < ApplicationController
   end
 
   def dose_params
-    params.require(:dose).permit(:description, :cocktail_id, :ingredient_id)
+    params.require(:dose).permit(:description)
   end
 end

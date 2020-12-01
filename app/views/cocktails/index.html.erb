@@ -1,11 +1,40 @@
-<h2>List of cocktails</h2>
+<div class="banner">
+  <div class="container">
+    <div class="banner-text">
+      <h1>List of cocktails</h1>
+      <%= link_to "Add a cocktail", new_cocktail_path, type: "button", class: "btn btn-primary mt-2"%>
+    </div>
+  </div>
+</div>
 
-<% @cocktails.each do |cocktail| %>
-  <li><%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></li>
-<i><%= link_to "More info", cocktail_path(cocktail) %></i>
-<i><%#= link_to "Edit", edit_cocktail_path(cocktail) %></i>
-<i><%= link_to "Remove", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } %></i>
-<%= link_to 'Create a dose', new_cocktail_dose_path(cocktail) %>
-<% end %>
-<p></p>
-<%= link_to "Add new cocktail", new_cocktail_path %>
+<%# <div class="container mt-5">
+  <div class="cards mb-5">
+    <% @cocktails.each do |cocktail| %>
+      <%#= link_to cocktail_path(cocktail), class: 'cocktail' do %>
+        <%# <div data-aos="flip-up" class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('https://source.unsplash.com/500x400/?cocktail')"> %>
+          <%#= cocktail.name %>
+        <%# </div> %>
+      <%# end %>
+    <%# end %>
+  <%# </div> %>
+<%# </div >  %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <%# <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+          <div class="card-description">
+            #<h2><%#= cocktail.name %>
+          <%# </div> %>
+          <%#= link_to "More about", cocktail_path(cocktail), class: 'card-link' %>
+        <div class="card" style="width: 18rem;">
+          <img src="https://source.unsplash.com/500x400/?cocktail" class="card-img-top" alt="cocktail">
+          <div class="card-body">
+            <h5 class="card-title"><%= cocktail.name %></h5>
+            <a href="<%= cocktail_path(cocktail) %>" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
